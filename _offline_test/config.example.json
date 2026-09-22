@@ -1,0 +1,33 @@
+{
+  "_comment": [
+    "Copy this to _offline_test/config.json to get a sandbox that is completely",
+    "separate from your real config: its own data/ and results/ directories, and",
+    "tokens that are deliberately fake.",
+    "",
+    "Fill it once with 'python fetch.py --config _offline_test/config.json' using",
+    "real credentials (replace the tokens below, or pass --source-token/",
+    "--target-token), and every dry run after that plans against those snapshots",
+    "with no network and no AWS.",
+    "",
+    "No file named config.json is ever committed - see .gitignore - so the",
+    "snapshots and whatever credential you put here stay on your machine."
+  ],
+
+  "stacks": {
+    "source": {
+      "label": "source (offline fixture)",
+      "stack": "stack1.source",
+      "token": "offline-test-not-a-real-token"
+    },
+    "target": {
+      "label": "target (offline fixture)",
+      "stack": "stack2.target",
+      "token": "offline-test-not-a-real-token"
+    }
+  },
+
+  "paths": {
+    "data_dir": "data",
+    "results_dir": "results"
+  }
+}

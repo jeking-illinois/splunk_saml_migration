@@ -1,0 +1,69 @@
+{
+  "_comment": [
+    "Copy this to config.json and edit. Only the keys you want to change need to",
+    "be present - everything else falls back to the defaults in config.py.",
+    "",
+    "CREDENTIALS resolve in this order, first hit wins:",
+    "  1. --source-token / --target-token on the command line",
+    "  2. $SPLUNK_SOURCE_TOKEN / $SPLUNK_TARGET_TOKEN",
+    "  3. the \"token\" field below (plain text)",
+    "  4. the \"ssm_key\" field below, read with the AWS CLI   <- default",
+    "Using 1, 2 or 3 means AWS is never invoked at all. Option 3 puts a live",
+    "token on disk in plain text - do not commit config.json if you use it.",
+    "",
+    "A stack can be given as just its Splunk Cloud name, e.g. \"stack\": \"acme\",",
+    "which derives https://admin.splunk.com/acme/adminconfig/v2 and",
+    "https://acme.splunkcloud.com:8089. Set acs_base/rest_base explicitly only",
+    "when the URLs are non-standard (a search head cluster member, for example)."
+  ],
+
+  "aws": {
+    "profile": "my-aws-profile",
+    "region": "us-east-2"
+  },
+
+  "stacks": {
+    "source": {
+      "label": "acme-old (source of truth)",
+      "stack": "acme-old",
+      "ssm_key": "/splunk/acme-old-token",
+      "token": ""
+    },
+    "target": {
+      "label": "acme-new (migration target)",
+      "stack": "acme-new",
+      "ssm_key": "/splunk/acme-new-token",
+      "token": ""
+    }
+  },
+
+  "roles": {
+    "protected": ["admin", "sc_admin", "power", "user", "can_delete"],
+    "baseline": "user"
+  },
+
+  "http": {
+    "timeout": 180,
+    "max_retries": 5,
+    "acs_page_size": 100,
+    "rest_page_size": 250
+  },
+
+  "write": {
+    "sleep": 0.1,
+    "settle": 20,
+    "create_attempts": 15,
+    "create_poll": 0.4
+  },
+
+  "users": {
+    "require_saml_mapping_on_source": true,
+    "exclude_users": [],
+    "exclude_patterns": ["svc-*", "*-automation"]
+  },
+
+  "paths": {
+    "data_dir": "data",
+    "results_dir": "results"
+  }
+}

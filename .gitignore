@@ -1,0 +1,24 @@
+# Real information about a live Splunk estate. None of this belongs in a
+# repository - see "What is deliberately not in this repository" in README.md.
+
+# Your stack names, SSM parameter paths, and possibly a plain-text token.
+# config.example.json is the committed template.
+config.json
+
+# Snapshots: every username on both stacks, their roles, and your index, app and
+# SAML group names. One fetch.py run creates all of it.
+data/
+_offline_test/data/
+
+# Excel reports and rollback journals - per-user by definition.
+results/
+_offline_test/results/
+*.xlsx
+*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
