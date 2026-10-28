@@ -6,7 +6,7 @@ Shared Excel reporting. Every sync script produces the same shape of workbook:
     Summary   metric/value pairs, bold on section headers
     extras    zero or more additional sheets
 
-    from report import Sheet, write_workbook
+    from lib.report import Sheet, write_workbook
     write_workbook(path,
         Sheet("User Sync", COLUMNS, rows, colour_by="Result"),
         summary=[("Mode", "APPLY"), ("", ""), ("Results:", ""), ...],
@@ -152,7 +152,7 @@ def banner(title, cfg, mode, extra_lines=()):
 
 def token_warning(client, label):
     """Print an expiry warning for a token that is about to die or already has."""
-    from clients import token_expiry
+    from lib.clients import token_expiry
     when, expired = token_expiry(client.token)
     if not when:
         return

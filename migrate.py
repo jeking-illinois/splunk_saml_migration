@@ -35,8 +35,8 @@ import subprocess
 import sys
 import time
 
-from config import add_common_args, configure
-from report import banner
+from lib.config import add_common_args, configure
+from lib.report import banner
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 

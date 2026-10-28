@@ -38,10 +38,10 @@ import json
 import time
 from datetime import datetime
 
-from clients import ApiError, RestClient
-from config import add_common_args, configure
-from report import Sheet, banner, token_warning, write_workbook
-import snapshots as snap
+from lib.clients import ApiError, RestClient
+from lib.config import add_common_args, configure
+from lib.report import Sheet, banner, token_warning, write_workbook
+from lib import snapshots as snap
 
 COLUMNS = [
     ("SAML Group", 68), ("On Target", 11), ("Action", 10), ("Result", 18),

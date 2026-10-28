@@ -45,10 +45,10 @@ import json
 import time
 from datetime import datetime
 
-from clients import AcsClient, ApiError
-from config import add_common_args, configure
-from report import Sheet, banner, token_warning, write_workbook
-import snapshots as snap
+from lib.clients import AcsClient, ApiError
+from lib.config import add_common_args, configure
+from lib.report import Sheet, banner, token_warning, write_workbook
+from lib import snapshots as snap
 
 # Numeric/string role settings, compared and sent verbatim.
 SCALAR_FIELDS = [

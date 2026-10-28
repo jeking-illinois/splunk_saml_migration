@@ -34,9 +34,9 @@ Exit code 0 if everything passed, 1 otherwise.
 import argparse
 from datetime import datetime
 
-from clients import AcsClient, ApiError, RestClient, token_expiry, token_identity
-from config import ConfigError, add_common_args, configure
-from report import banner
+from lib.clients import AcsClient, ApiError, RestClient, token_expiry, token_identity
+from lib.config import ConfigError, add_common_args, configure
+from lib.report import banner
 
 
 def check(label, fn):

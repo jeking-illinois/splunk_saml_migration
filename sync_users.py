@@ -48,10 +48,10 @@ import os
 import time
 from datetime import datetime
 
-from clients import RestClient
-from config import add_common_args, configure
-from report import Sheet, banner, token_warning, write_workbook
-import snapshots as snap
+from lib.clients import RestClient
+from lib.config import add_common_args, configure
+from lib.report import Sheet, banner, token_warning, write_workbook
+from lib import snapshots as snap
 
 # What happened to each user, and the one-line explanation shown in the report.
 CATEGORY_NOTE = {

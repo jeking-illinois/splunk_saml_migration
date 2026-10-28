@@ -6,7 +6,7 @@ Everything deployment-specific lives in config.json; nothing in this package
 hard-codes a hostname, a token, or an AWS profile. See config.example.json for a
 documented template.
 
-    from config import load_config
+    from lib.config import load_config
     cfg = load_config(args.config)
     cfg.source.label, cfg.target.acs_base, cfg.baseline_role, ...
 
@@ -34,7 +34,8 @@ import os
 import subprocess
 import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+# The repo root, one level above lib/ - config.json, data/ and results/ live there.
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_CONFIG_PATH = os.path.join(HERE, "config.json")
 
 # Every setting with a sane default. config.json is merged over this, key by key,

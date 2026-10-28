@@ -36,9 +36,9 @@ import sys
 import time
 from datetime import datetime
 
-from clients import ApiError, RestClient
-from config import add_common_args, configure
-from report import Sheet, banner, token_warning, write_workbook
+from lib.clients import ApiError, RestClient
+from lib.config import add_common_args, configure
+from lib.report import Sheet, banner, token_warning, write_workbook
 
 COLUMNS = [
     ("User", 34), ("Roles Before", 52), ("Roles Intended", 52), ("Roles Live", 52),
