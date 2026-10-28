@@ -29,9 +29,9 @@ import argparse
 import json
 from datetime import datetime
 
-from clients import AcsClient, RestClient
-from config import add_common_args, configure
-from report import token_warning
+from lib.clients import AcsClient, RestClient
+from lib.config import add_common_args, configure
+from lib.report import token_warning
 
 GROUPS = ("roles", "users")
 

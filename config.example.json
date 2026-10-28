@@ -1,7 +1,7 @@
 {
   "_comment": [
     "Copy this to config.json and edit. Only the keys you want to change need to",
-    "be present - everything else falls back to the defaults in config.py.",
+    "be present - everything else falls back to the defaults in lib/config.py.",
     "",
     "CREDENTIALS resolve in this order, first hit wins:",
     "  1. --source-token / --target-token on the command line",
